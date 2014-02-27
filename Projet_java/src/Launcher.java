@@ -22,7 +22,7 @@ public class Launcher
 
         try
         {
-            fis = new FileInputStream("../levels.txt");
+            fis = new FileInputStream("src/level1.txt");
             fis.read(buffer);
             String content = new String(buffer);
             String[][] map = new String[30][30];
@@ -31,7 +31,7 @@ public class Launcher
             int nbrLign = tabSplit.length ;
             for(int j = 0; j < nbrLign - 1; j++)
             {
-                for (int i = 0; i < 24; i++)
+                for (int i = 0; i < 7; i++)
                 {
                     String tabSplitSpl[] = tabSplit[j].split("");
                     map[i][j] =  tabSplitSpl[i];
@@ -40,7 +40,7 @@ public class Launcher
 
             for(int j = 0; j < nbrLign - 1; j++)
             {
-                for(int i=0; i<24; i++)
+                for(int i=0; i < 10; i++)
                 {
                     System.out.print(map[i][j]);
                 }
