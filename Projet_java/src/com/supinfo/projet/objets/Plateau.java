@@ -9,63 +9,27 @@ import java.io.IOException;
  */
 public class Plateau
 {
-    public int hauteur;
-    public int largeur;
 
-    public Plateau(int hauteur, int largeur)
-    {
-        this.hauteur = hauteur;
-        this.largeur = largeur;
-    }
-
-    public int getHauteur()
-    {
-        return hauteur;
-    }
-
-    public void setHauteur(int hauteur)
-    {
-        this.hauteur = hauteur;
-    }
-
-    public int getLargeur()
-    {
-        return largeur;
-    }
-
-    public void setLargeur(int largeur)
-    {
-        this.largeur = largeur;
-    }
-
-    public void display(int hauteur, int largeur)
+    int nbrLign2 = 0;
+    public void loadMap (Cases[][] gameMap)
     {
         byte[] buffer = new byte[138];
         FileInputStream fis = null;
-
         try
         {
             fis = new FileInputStream("src/level1.txt");
             fis.read(buffer);
             String content = new String(buffer);
-            String[][] map = new String[30][30];
             String[] tabSplit = content.split("!");
 
-            int nbrLign = tabSplit.length ;
-            for(int j = 0; j < nbrLign - 1; j++)
+            nbrLign2 = tabSplit.length ;
+            for(int j = 0; j < nbrLign2 - 1; j++)
             {
                 for (int i = 0; i < 20; i++)
                 {
                     String tabSplitSpl[] = tabSplit[j].split("");
-                    map[i][j] =  tabSplitSpl[i];
-                }
-            }
-
-            for(int j = 0; j < nbrLign - 1; j++)
-            {
-                for(int i=0; i < 20; i++)
-                {
-                    System.out.print(map[i][j]);
+                    gameMap[i][j] = new Cases(" ");
+                    gameMap[i][j].setStatut(tabSplitSpl[i]);
                 }
             }
         }
@@ -79,4 +43,23 @@ public class Plateau
             System.out.println("Unable to read or write the file");
         }
     }
+
+    public void displayMap (Cases gameMap[][])
+    {
+        for(int j = 0; j < nbrLign2 - 1; j++)
+        {
+            for(int i=0; i < 20; i++)
+            {
+                System.out.print(gameMap[i][j].statut);
+            }
+        }
+    }
+
+
+    public Plateau()
+    {
+
+    }
+
+
 }

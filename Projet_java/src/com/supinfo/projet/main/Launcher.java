@@ -4,11 +4,11 @@ package com.supinfo.projet.main;
  * Created by Hugo on 25/02/14.
  */
 
+import com.supinfo.projet.objets.Cases;
 import com.supinfo.projet.objets.Plateau;
 
-import java.io.FileReader;
+import java.io.*;
 import java.util.Scanner;
-import java.io.FileOutputStream;
 import java.util.Scanner;
 
 public class Launcher
@@ -17,10 +17,12 @@ public class Launcher
     {
         System.out.println("Projet de Java");
         System.out.println();
+        Cases[][] gameMap = new Cases[20][20];
 
-        Plateau monPlateau = new Plateau(20, 20);
+        int nbrLign2 =0;
+        Plateau currentLvl = new Plateau();
 
-        int nbrLign = 0;
-        monPlateau.display(nbrLign, 20);
+        currentLvl.loadMap( gameMap);
+        currentLvl.displayMap(gameMap);
     }
 }

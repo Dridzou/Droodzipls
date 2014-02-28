@@ -5,25 +5,28 @@ package com.supinfo.projet.objets;
  */
 public class Cases
 {
-    public char statut;  //Case vide : " ", Mur : "=", Caisse : "B", Joueur : "X", Cible : "O", Caisse sur cible : "8"
+    public String statut = " ";  //Case vide : " ", Mur : "=", Caisse : "B", Joueur : "X", Cible : "O", Caisse sur cible : "8"
 
-    public Cases(char statut)
+    public Cases(String statut)
     {
         this.statut = statut;
     }
 
-    int changeStatut(char newStatut)
+    String changeStatut(String newStatut)
     {
         return this.statut = newStatut;
     }
 
-    public char getStatut()
+    public String getStatut()
     {
         return statut;
     }
 
-    public void setStatut(char statut)
+    public void setStatut(String statut)
     {
         this.statut = statut;
     }
+
+
+
 }
