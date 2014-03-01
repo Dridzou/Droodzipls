@@ -29,5 +29,7 @@ public class Launcher
         Joueur player = new Joueur(tabCoord[0],tabCoord[1]);
 
         currentLvl.displayMap(gameMap);
+
+        player.input();
     }
 }
