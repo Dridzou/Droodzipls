@@ -77,24 +77,35 @@ public class Joueur implements NativeKeyListener
     public void mouvement(){
 
 
-        if (DernierInput.equals("Haut")) {
+        if (DernierInput.equals("Haut") || DernierInput.equals("z")) {
 
-        //
+            //
 
-        }else if (DernierInput.equals("Bas")) {
-
-
-
-        }else if (DernierInput.equals("Gauche")){
+        }else if (DernierInput.equals("Bas") || DernierInput.equals("s")) {
 
 
 
-        }else if (DernierInput.equals("Droite")){
+        }else if (DernierInput.equals("Gauche") || DernierInput.equals("q")){
 
 
+
+        }else if (DernierInput.equals("Droite") || DernierInput.equals("d")){
+
+
+
+
+        }else if (DernierInput.equals("Echap")){
+            //retour menu
+
+
+        }else if (DernierInput.equals("R")){
+
+            //reset map
 
 
         }
+
+
 
 
 
