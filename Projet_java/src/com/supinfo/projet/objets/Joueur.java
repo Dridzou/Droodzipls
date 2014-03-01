@@ -9,6 +9,7 @@ import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
 import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
+import java.util.Scanner;
 
 
 public class Joueur implements NativeKeyListener
@@ -74,6 +75,42 @@ public class Joueur implements NativeKeyListener
     }
 
 
+
+    public void MouvScan()
+    {
+        Scanner sc = new Scanner(System.in);
+        String dir = "";
+        do
+        {
+            System.out.println("Entrer une direction: ");
+            dir = sc.nextLine().toLowerCase();
+        }
+        while(!dir.equals("haut") && !dir.equals("z") && !dir.equals("bas") && !dir.equals("s") && !dir.equals("gauche") && !dir.equals("q") && dir.equals("droite") && dir.equals("d"));
+
+
+        if (dir.equals("haut") || dir.equals("z")) {
+            //System.out.println("Appuie sur haut ou z");
+        }
+        else if (dir.equals("bas") || dir.equals("s")) {
+            //System.out.println("Appuie sur bas ou s");
+        }
+        else if (dir.equals("gauche") || dir.equals("q")){
+            //System.out.println("Appuie sur gauche ou q");
+        }
+        else if (dir.equals("droite") || dir.equals("d")){
+            //System.out.println("Appuie sur droite ou d");
+        }
+        else if (dir.equals("Echap")){
+            //retour menu
+
+        }
+        else if (dir.equals("R")){
+            //reset map
+
+        }
+    }
+
+
     public void mouvement(){
 
 
@@ -81,34 +118,33 @@ public class Joueur implements NativeKeyListener
 
             //
 
-        }else if (DernierInput.equals("Bas") || DernierInput.equals("s")) {
+        }
+        else if (DernierInput.equals("Bas") || DernierInput.equals("s")) {
 
 
 
-        }else if (DernierInput.equals("Gauche") || DernierInput.equals("q")){
+        }
+        else if (DernierInput.equals("Gauche") || DernierInput.equals("q")){
 
 
 
-        }else if (DernierInput.equals("Droite") || DernierInput.equals("d")){
+        }
+        else if (DernierInput.equals("Droite") || DernierInput.equals("d")){
 
 
 
-
-        }else if (DernierInput.equals("Echap")){
+        }
+        else if (DernierInput.equals("Echap")){
             //retour menu
 
 
-        }else if (DernierInput.equals("R")){
+        }
+        else if (DernierInput.equals("R")){
 
             //reset map
 
 
         }
-
-
-
-
-
     }
 
 }

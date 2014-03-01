@@ -18,7 +18,7 @@ public class Plateau
         FileInputStream fis = null;
         try
         {
-            fis = new FileInputStream("src/level1.txt");
+            fis = new FileInputStream("src/lvl1.txt");
             fis.read(buffer);
             String content = new String(buffer);
             String[] tabSplit = content.split("!");

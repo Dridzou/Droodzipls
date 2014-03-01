@@ -7,10 +7,9 @@ package com.supinfo.projet.main;
 import com.supinfo.projet.objets.Cases;
 import com.supinfo.projet.objets.Joueur;
 import com.supinfo.projet.objets.Plateau;
-
+import java.util.Scanner;
 import java.io.*;
-import java.util.Scanner;
-import java.util.Scanner;
+
 
 public class Launcher
 {
@@ -24,12 +23,14 @@ public class Launcher
         int nbrLign2 =0;
         Plateau currentLvl = new Plateau();
 
-        tabCoord = currentLvl.loadMap( gameMap);
+        tabCoord = currentLvl.loadMap(gameMap);
 
         Joueur player = new Joueur(tabCoord[0],tabCoord[1]);
 
         currentLvl.displayMap(gameMap);
 
-        player.input();
+        //player.input();
+        System.out.println();
+        player.MouvScan();
     }
 }
