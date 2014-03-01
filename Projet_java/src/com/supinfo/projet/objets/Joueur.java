@@ -3,10 +3,19 @@ package com.supinfo.projet.objets;
 /**
  * Created by Hugo on 27/02/14.
  */
-public class Joueur
+
+
+import org.jnativehook.GlobalScreen;
+import org.jnativehook.NativeHookException;
+import org.jnativehook.keyboard.NativeKeyEvent;
+import org.jnativehook.keyboard.NativeKeyListener;
+
+
+public class Joueur implements NativeKeyListener
 {
     public int coordx;
     public int coordy;
+    public String DernierInput;
 
     public Joueur(int coordx, int coordy) {
         this.coordx = coordx;
@@ -28,4 +37,67 @@ public class Joueur
     public void setCoordy(int coordy) {
         this.coordy = coordy;
     }
+
+
+    public void nativeKeyPressed(NativeKeyEvent e) {
+        System.out.println("Key Pressed: " + NativeKeyEvent.getKeyText(e.getKeyCode()));
+        DernierInput = NativeKeyEvent.getKeyText(e.getKeyCode());
+
+
+
+        if (e.getKeyCode() == NativeKeyEvent.VK_ESCAPE) {
+            GlobalScreen.unregisterNativeHook();
+        }
+    }
+
+    public void nativeKeyReleased(NativeKeyEvent e) {
+        ///  System.out.println("Key Released: " + NativeKeyEvent.getKeyText(e.getKeyCode()));
+    }
+
+    public void nativeKeyTyped(NativeKeyEvent e) {
+        // System.out.println("Key Typed: " + e.getKeyText(e.getKeyCode()));
+    }
+
+    public static void input() {
+        try {
+            GlobalScreen.registerNativeHook();
+        }
+        catch (NativeHookException ex) {
+            System.err.println("There was a problem registering the native hook.");
+            System.err.println(ex.getMessage());
+
+            System.exit(1);
+        }
+
+        //Construct the example object and initialze native hook.
+        GlobalScreen.getInstance().addNativeKeyListener(new Joueur(0,0));
+    }
+
+
+    public void mouvement(){
+
+
+        if (DernierInput.equals("Haut")) {
+
+        //
+
+        }else if (DernierInput.equals("Bas")) {
+
+
+
+        }else if (DernierInput.equals("Gauche")){
+
+
+
+        }else if (DernierInput.equals("Droite")){
+
+
+
+
+        }
+
+
+
+    }
+
 }
