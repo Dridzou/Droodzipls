@@ -13,8 +13,11 @@ public class Plateau
     int nbrLign2 = 0;
     public int[] loadMap (Cases[][] gameMap)
     {
-        int[] tabCoord = new int [2];
-        byte[] buffer = new byte[138];
+        int[] tabVar = new int [5];
+        tabVar[2] = 0;
+        tabVar[3] = 0;
+        tabVar[4] = 0;
+        byte[] buffer = new byte[276];
         FileInputStream fis = null;
         try
         {
@@ -33,8 +36,12 @@ public class Plateau
                     gameMap[i][j].setStatut(tabSplitSpl[i]);
                     if (tabSplitSpl[i].equals("X"))
                     {
-                        tabCoord [0] = i;
-                        tabCoord [1] = j;
+                        tabVar[0] = i;
+                        tabVar[1] = j;
+                    }
+                    if (tabSplitSpl[i].equals("O"))
+                    {
+                        tabVar[2]++;
                     }
                 }
             }
@@ -48,7 +55,7 @@ public class Plateau
         {
             System.out.println("Unable to read or write the file");
         }
-        return (tabCoord);
+        return (tabVar);
     }
 
     public void displayMap (Cases gameMap[][])

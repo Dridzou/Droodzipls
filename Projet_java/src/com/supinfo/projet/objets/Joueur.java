@@ -54,7 +54,7 @@ public class Joueur implements NativeKeyListener
     }
 
     public void nativeKeyReleased(NativeKeyEvent e) {
-        ///  System.out.println("Key Released: " + NativeKeyEvent.getKeyText(e.getKeyCode()));
+        //  System.out.println("Key Released: " + NativeKeyEvent.getKeyText(e.getKeyCode()));
 
 
     }
@@ -88,6 +88,8 @@ public class Joueur implements NativeKeyListener
         Scanner sc = new Scanner(System.in);
         String dir = "";
 
+        //verifReset = false;
+
 
         do
         {
@@ -99,7 +101,7 @@ public class Joueur implements NativeKeyListener
                 System.out.println("Données invalides !");
             }
         }
-        while(!dir.equals("haut") && !dir.equals("z") && !dir.equals("bas") && !dir.equals("s") && !dir.equals("gauche") && !dir.equals("q") && dir.equals("droite") && dir.equals("d"));
+        while(!dir.equals("haut") && !dir.equals("z") && !dir.equals("bas") && !dir.equals("s") && !dir.equals("gauche") && !dir.equals("q") && dir.equals("droite") && dir.equals("d") && !dir.equals("r"));
 
 
         if (dir.equals("gauche") || dir.equals("q")){
@@ -148,6 +150,7 @@ public class Joueur implements NativeKeyListener
                 }else if (caseslol[x-2][y].statut.equals("O")){
 
                     caseslol[x-2][y].statut = "8";
+                    coordtab[3]++;
                     caseslol[x-1][y].statut = "X";
                     if (caseslol[x][y].statut.equals("X")){
 
@@ -156,8 +159,9 @@ public class Joueur implements NativeKeyListener
                     }else {
                         caseslol[x][y].statut = "O";
                     }
-                }else if (caseslol[x-1][y].statut.equals("8")){
-
+                }
+                else if (caseslol[x-1][y].statut.equals("8")){
+                    coordtab[3]--;
                     //case au dessus de la caisse vide
                     if (caseslol[x-2][y].statut.equals(" ")){
 
@@ -177,6 +181,7 @@ public class Joueur implements NativeKeyListener
                     }else if (caseslol[x-2][y].statut.equals("O")){
 
                         caseslol[x-2][y].statut = "8";
+                        coordtab[3]++;
                         caseslol[x-1][y].statut = "G";
                         if (caseslol[x][y].statut.equals("X")){
 
@@ -189,7 +194,19 @@ public class Joueur implements NativeKeyListener
                     }
                 }
             }
-        coordtab[0]--;
+            if (caseslol[x-1][y].statut.equals("=") ||
+                    (caseslol[x-1][y].statut.equals("B") && caseslol[x-2][y].statut.equals("=")) ||
+                    (caseslol[x-1][y].statut.equals("B") && caseslol[x-2][y].statut.equals("B")) ||
+                    (caseslol[x-1][y].statut.equals("B") && caseslol[x-2][y].statut.equals("8")) ||
+                    (caseslol[x-1][y].statut.equals("8") && caseslol[x-2][y].statut.equals("=")) ||
+                    (caseslol[x-1][y].statut.equals("8") && caseslol[x-2][y].statut.equals("B")) ||
+                    (caseslol[x-1][y].statut.equals("8") && caseslol[x-2][y].statut.equals("8")))
+            {}
+            else
+            {
+                coordtab[0]--;
+            }
+
         }
         else if (dir.equals("droite") || dir.equals("d"))
         {
@@ -244,6 +261,7 @@ public class Joueur implements NativeKeyListener
                 else if (caseslol[x+2][y].statut.equals("O"))
                 {
                     caseslol[x+2][y].statut = "8";
+                    coordtab[3]++;
                     caseslol[x+1][y].statut = "X";
                     if (caseslol[x][y].statut.equals("X"))
                     {
@@ -256,6 +274,7 @@ public class Joueur implements NativeKeyListener
                 }
                 else if (caseslol[x+1][y].statut.equals("8"))
                 {
+                    coordtab[3]--;
                     //case au dessus de la caisse vide
                     if (caseslol[x+2][y].statut.equals(" "))
                     {
@@ -275,6 +294,7 @@ public class Joueur implements NativeKeyListener
                     else if (caseslol[x+2][y].statut.equals("O"))
                     {
                         caseslol[x+2][y].statut = "8";
+                        coordtab[3]++;
                         caseslol[x+1][y].statut = "G";
                         if (caseslol[x][y].statut.equals("X"))
                         {
@@ -287,7 +307,18 @@ public class Joueur implements NativeKeyListener
                     }
                 }
             }
-            coordtab[0]++;
+            if ((caseslol[x+1][y].statut.equals("=")) ||
+                    ((caseslol[x+1][y].statut.equals("B")) && (caseslol[x+2][y].statut.equals("="))) ||
+                    ((caseslol[x+1][y].statut.equals("B")) && (caseslol[x+2][y].statut.equals("B"))) ||
+                    ((caseslol[x+1][y].statut.equals("B")) && (caseslol[x+2][y].statut.equals("8"))) ||
+                    ((caseslol[x+1][y].statut.equals("8")) && (caseslol[x+2][y].statut.equals("="))) ||
+                    ((caseslol[x+1][y].statut.equals("8")) && (caseslol[x+2][y].statut.equals("B"))) ||
+                    ((caseslol[x+1][y].statut.equals("8")) && (caseslol[x+2][y].statut.equals("8"))))
+            {}
+            else
+            {
+                coordtab[0]++;
+            }
         }
         else if (dir.equals("haut") || dir.equals("z"))
         {
@@ -305,6 +336,7 @@ public class Joueur implements NativeKeyListener
                 }
 
             }
+            //case du dessus cible
             else if (caseslol[x][y-1].statut.equals("O"))
             {
                 caseslol[x][y-1].statut = "G";
@@ -344,6 +376,7 @@ public class Joueur implements NativeKeyListener
                 else if (caseslol[x][y-2].statut.equals("O"))
                 {
                     caseslol[x][y-2].statut = "8";
+                    coordtab[3]++;
                     caseslol[x][y-1].statut = "X";
                     if (caseslol[x][y].statut.equals("X"))
                     {
@@ -354,40 +387,53 @@ public class Joueur implements NativeKeyListener
                         caseslol[x][y].statut = "O";
                     }
                 }
-                else if (caseslol[x][y-1].statut.equals("8"))
+            }
+            else if (caseslol[x][y-1].statut.equals("8"))
+            {
+                coordtab[3]--;
+                //case au dessus de la caisse vide
+                if (caseslol[x][y-2].statut.equals(" "))
                 {
-                    //case au dessus de la caisse vide
-                    if (caseslol[x][y-2].statut.equals(" "))
+                    caseslol[x][y-2].statut = "B";
+                    caseslol[x][y-1].statut = "G";
+                    //
+                    if (caseslol[x][y].statut.equals("X"))
                     {
-                        caseslol[x][y-2].statut = "B";
-                        caseslol[x][y-1].statut = "G";
-                        //
-                        if (caseslol[x][y].statut.equals("X"))
-                        {
-                            caseslol[x][y].statut = " ";
-                        }
-                        else if (caseslol[x][y].statut.equals("G"))
-                        {
-                            caseslol[x][y].statut = "O";
-                        }
-                        //case au dessus de la caisse = cible
+                        caseslol[x][y].statut = " ";
                     }
-                    else if (caseslol[x][y-2].statut.equals("O"))
+                    else if (caseslol[x][y].statut.equals("G"))
                     {
-                        caseslol[x][y-2].statut = "8";
-                        caseslol[x][y-1].statut = "G";
-                        if (caseslol[x][y].statut.equals("X"))
-                        {
-                            caseslol[x][y].statut = " ";
-                        }
-                        else
-                        {
-                            caseslol[x][y].statut = "O";
-                        }
+                        caseslol[x][y].statut = "O";
+                    }
+                    //case au dessus de la caisse = cible
+                }
+                else if (caseslol[x][y-2].statut.equals("O"))
+                {
+                    caseslol[x][y-2].statut = "8";
+                    coordtab[3]++;
+                    caseslol[x][y-1].statut = "G";
+                    if (caseslol[x][y].statut.equals("X"))
+                    {
+                        caseslol[x][y].statut = " ";
+                    }
+                    else
+                    {
+                        caseslol[x][y].statut = "O";
                     }
                 }
             }
-            coordtab[1]--;
+            if (caseslol[x][y-1].statut.equals("=") ||
+                    (caseslol[x][y-1].statut.equals("B") && caseslol[x][y-2].statut.equals("=")) ||
+                    (caseslol[x][y-1].statut.equals("B") && caseslol[x][y-2].statut.equals("B")) ||
+                    (caseslol[x][y-1].statut.equals("B") && caseslol[x][y-2].statut.equals("8")) ||
+                    (caseslol[x][y-1].statut.equals("8") && caseslol[x][y-2].statut.equals("=")) ||
+                    (caseslol[x][y-1].statut.equals("8") && caseslol[x][y-2].statut.equals("B")) ||
+                    (caseslol[x][y-1].statut.equals("8") && caseslol[x][y-2].statut.equals("8")))
+            {}
+            else
+            {
+                coordtab[1]--;
+            }
         }
         else if (dir.equals("bas") || dir.equals("s"))
         {
@@ -440,6 +486,7 @@ public class Joueur implements NativeKeyListener
                 else if (caseslol[x][y+2].statut.equals("O"))
                 {
                     caseslol[x][y+2].statut = "8";
+                    coordtab[3]++;
                     caseslol[x][y+1].statut = "X";
                     if (caseslol[x][y].statut.equals("X"))
                     {
@@ -452,6 +499,7 @@ public class Joueur implements NativeKeyListener
                 }
                 else if (caseslol[x][y+1].statut.equals("8"))
                 {
+                    coordtab[3]--;
                     //case au dessus de la caisse vide
                     if (caseslol[x][y+2].statut.equals(" "))
                     {
@@ -471,6 +519,7 @@ public class Joueur implements NativeKeyListener
                     else if (caseslol[x][y+2].statut.equals("O"))
                     {
                         caseslol[x][y+2].statut = "8";
+                        coordtab[3]++;
                         caseslol[x][y+1].statut = "G";
                         if (caseslol[x][y].statut.equals("X"))
                         {
@@ -483,48 +532,23 @@ public class Joueur implements NativeKeyListener
                     }
                 }
             }
-        coordtab[1] ++;
+
+            if (caseslol[x][y+1].statut.equals("=") ||
+                        (caseslol[x][y+1].statut.equals("B") && caseslol[x][y+2].statut.equals("=")) ||
+                        (caseslol[x][y+1].statut.equals("B") && caseslol[x][y+2].statut.equals("B")) ||
+                        (caseslol[x][y+1].statut.equals("B") && caseslol[x][y+2].statut.equals("8")) ||
+                        (caseslol[x][y+1].statut.equals("8") && caseslol[x][y+2].statut.equals("=")) ||
+                        (caseslol[x][y+1].statut.equals("8") && caseslol[x][y+2].statut.equals("B")) ||
+                        (caseslol[x][y+1].statut.equals("8") && caseslol[x][y+2].statut.equals("8")))
+            {}
+            else
+            {
+                coordtab[1] ++;
+            }
+        }
+        else if(dir.equals("r"))
+        {
+            coordtab[4] = 1;
         }
     }
 }
-
-
-
-
-
-    /*public void mouvement(){
-
-
-        if (DernierInput.equals("Haut") || DernierInput.equals("z")) {
-
-            //
-
-        }
-        else if (DernierInput.equals("Bas") || DernierInput.equals("s")) {
-
-
-        }
-        else if (DernierInput.equals("Gauche") || DernierInput.equals("q")){
-
-
-
-        }
-        else if (DernierInput.equals("Droite") || DernierInput.equals("d")){
-
-
-
-        }
-        else if (DernierInput.equals("Echap")){
-            //retour menu
-
-
-        }
-        else if (DernierInput.equals("R")){
-
-            //reset map
-
-
-        }
-    }
-*/
-

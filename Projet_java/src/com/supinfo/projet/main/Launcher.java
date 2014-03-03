@@ -20,24 +20,26 @@ public class Launcher
         System.out.println("Projet de Java");
         System.out.println();
         Cases[][] gameMap = new Cases[20][20];
-        int[] tabCoord = new int [2];
-        boolean win = false;
+        int[] tabVar = new int [5];
+        int verifReset = 0;
         int nbrLign2 = 0;
         Plateau currentLvl = new Plateau();
 
-        tabCoord = currentLvl.loadMap(gameMap);
+        tabVar = currentLvl.loadMap(gameMap);
 
-        Joueur player = new Joueur(tabCoord[0],tabCoord[1]);
+        Joueur player = new Joueur(tabVar[0],tabVar[1]);
 
-        while (win == false)
+
+        while ((tabVar[2] != tabVar[3]))
         {
             currentLvl.displayMap(gameMap);
-            //splayer.input();
-            player.MouvScan(gameMap,tabCoord);
+            player.MouvScan(gameMap,tabVar);
+
+            if(tabVar[4] == 1)
+            {
+                tabVar = currentLvl.loadMap(gameMap);
+            }
         }
-
-
-        //System.out.println();
-        player.MouvScan(gameMap,tabCoord);
+        System.out.println("YOU WIN MOFO");
     }
 }
