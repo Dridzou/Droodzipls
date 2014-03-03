@@ -1,0 +1,5 @@
+/!\ A ajouter dans le launcher
+
+        Menu notreMenu = new Menu();
+        notreMenu.displayMenu();
+        //notreMenu.input();
