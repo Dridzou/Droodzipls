@@ -11,7 +11,7 @@ public class Plateau
 {
 
     int nbrLign2 = 0;
-    public int[] loadMap (Cases[][] gameMap)
+    public int[] loadMap (Cases[][] gameMap, int numLvl)
     {
         int[] tabVar = new int [5];
         tabVar[2] = 0;
@@ -21,7 +21,7 @@ public class Plateau
         FileInputStream fis = null;
         try
         {
-            fis = new FileInputStream("src/lvl1.txt");
+            fis = new FileInputStream("src/lvl" + numLvl + ".txt");
             fis.read(buffer);
             String content = new String(buffer);
             String[] tabSplit = content.split("!");

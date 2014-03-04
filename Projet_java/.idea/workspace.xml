@@ -56,7 +56,7 @@
     </breakpoint_any>
     <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/src/com/supinfo/projet/objets/Joueur.java" line="548" class="com.supinfo.projet.objets.Joueur" package="com.supinfo.projet.objets">
+      <breakpoint url="file://$PROJECT_DIR$/src/com/supinfo/projet/objets/Joueur.java" line="549" class="com.supinfo.projet.objets.Joueur" package="com.supinfo.projet.objets">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -84,7 +84,7 @@
       <file leaf-file-name="Launcher.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/supinfo/projet/main/Launcher.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="43" selection-start="667" selection-end="667" vertical-scroll-proportion="0.5005429" vertical-offset="79" max-vertical-offset="1000">
+            <state line="35" column="0" selection-start="816" selection-end="816" vertical-scroll-proportion="0.39196527" vertical-offset="339" max-vertical-offset="1320">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,7 +95,7 @@
       <file leaf-file-name="Joueur.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/supinfo/projet/objets/Joueur.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="59" selection-start="1856" selection-end="1857" vertical-scroll-proportion="-5.071429" vertical-offset="1454" max-vertical-offset="12298">
+            <state line="77" column="0" selection-start="1791" selection-end="1791" vertical-scroll-proportion="0.0" vertical-offset="10906" max-vertical-offset="12320">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#599#600#0" expanded="true" />
@@ -114,7 +114,7 @@
       <file leaf-file-name="Cases.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/supinfo/projet/objets/Cases.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="23" selection-start="417" selection-end="418" vertical-scroll-proportion="-14.25" vertical-offset="0" max-vertical-offset="651">
+            <state line="9" column="31" selection-start="256" selection-end="256" vertical-scroll-proportion="-6.75" vertical-offset="0" max-vertical-offset="651">
               <folding />
             </state>
           </provider>
@@ -123,7 +123,7 @@
       <file leaf-file-name="Plateau.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/supinfo/projet/objets/Plateau.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="22" selection-start="1608" selection-end="1608" vertical-scroll-proportion="0.0" vertical-offset="203" max-vertical-offset="1785">
+            <state line="20" column="35" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1785">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,8 +153,8 @@
         <option value="$PROJECT_DIR$/src/com/supinfo/projet/objets/Cases.java" />
         <option value="$USER_HOME$/Desktop/JoueurMouvement.java" />
         <option value="$PROJECT_DIR$/src/com/supinfo/projet/objets/Joueur.java" />
-        <option value="$PROJECT_DIR$/src/com/supinfo/projet/main/Launcher.java" />
         <option value="$PROJECT_DIR$/src/com/supinfo/projet/objets/Plateau.java" />
+        <option value="$PROJECT_DIR$/src/com/supinfo/projet/main/Launcher.java" />
       </list>
     </option>
   </component>
@@ -609,7 +609,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81407000" />
+    <option name="totallyTimeSpent" value="92209000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1064" extended-state="6" />
@@ -823,14 +823,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/projet/objets/Cases.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="23" selection-start="417" selection-end="418" vertical-scroll-proportion="-14.25" vertical-offset="0" max-vertical-offset="651">
+        <state line="9" column="31" selection-start="256" selection-end="256" vertical-scroll-proportion="-6.75" vertical-offset="0" max-vertical-offset="651">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/projet/objets/Joueur.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="59" selection-start="1856" selection-end="1857" vertical-scroll-proportion="-5.071429" vertical-offset="1454" max-vertical-offset="12298">
+        <state line="77" column="0" selection-start="1791" selection-end="1791" vertical-scroll-proportion="0.0" vertical-offset="1228" max-vertical-offset="12320">
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#599#600#0" expanded="true" />
@@ -847,7 +847,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/projet/objets/Plateau.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="22" selection-start="1608" selection-end="1608" vertical-scroll-proportion="0.0" vertical-offset="203" max-vertical-offset="1785">
+        <state line="20" column="35" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1785">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -856,7 +856,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/supinfo/projet/main/Launcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="43" selection-start="667" selection-end="667" vertical-scroll-proportion="0.5005429" vertical-offset="79" max-vertical-offset="1000">
+        <state line="35" column="0" selection-start="816" selection-end="816" vertical-scroll-proportion="0.39196527" vertical-offset="339" max-vertical-offset="1320">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

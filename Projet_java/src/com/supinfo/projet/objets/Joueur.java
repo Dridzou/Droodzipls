@@ -75,6 +75,7 @@ public class Joueur implements NativeKeyListener
 
             System.exit(1);
         }
+
     }
 
     public void MouvScan(Cases [][] caseslol, int [] coordtab)
