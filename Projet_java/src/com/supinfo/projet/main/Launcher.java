@@ -26,6 +26,7 @@ public class Launcher
         int[] tabVar = new int [5];
         int numLvl = 1;
         int nbrLign2 = 0;
+        int nbMouv = 0;
 
 
         Cases[][] gameMap = new Cases[20][20];
@@ -34,32 +35,39 @@ public class Launcher
 
         tabVar = currentLvl.loadMap(gameMap, numLvl);
 
-        if(numLvl < 13)
+        System.out.println("\tLevel " + numLvl);
+        while(numLvl < 13)
         {
-            while((tabVar[2] != tabVar[3]))
+            while ((tabVar[2] != tabVar[3]))
             {
-                while ((tabVar[2] != tabVar[3]))
-                {
-                    currentLvl.displayMap(gameMap);
-                    System.out.println();
-                    player.MouvScan(gameMap, tabVar);
 
-                    if(tabVar[4] == 1)
-                    {
-                        tabVar = currentLvl.loadMap(gameMap, numLvl);
-                    }
-                }
-                if(tabVar[2] == tabVar[3])
+                currentLvl.displayMap(gameMap);
+                System.out.println();
+                player.MouvScan(gameMap, tabVar);
+                nbMouv++;
+
+                if(tabVar[4] == 1)
                 {
-                    numLvl++;
-                    System.out.println("\n\tYOU WIN !\n\t\tLevel " + numLvl);
+                    tabVar = currentLvl.loadMap(gameMap, numLvl);
+                    numLvl = 0;
                 }
+            }
+            if((tabVar[2] == tabVar[3]) && (numLvl < 13))
+            {
+                numLvl++;
+                System.out.println("\n\tYOU WIN !\n");
+                System.out.println(nbMouv + " mouvement réalisés.\n");
+                nbMouv = 0;
+                System.out.println("\tLevel " + numLvl);
+            }
+            if(numLvl < 13)
+            {
                 tabVar = currentLvl.loadMap(gameMap, numLvl);
             }
+
         }
-        else
-        {
-            System.out.println("Vous avez fini le jeu, congratulations à vous !");
-        }
+
+        System.out.println("Vous avez fini le jeu, bravo !");
+
     }
 }

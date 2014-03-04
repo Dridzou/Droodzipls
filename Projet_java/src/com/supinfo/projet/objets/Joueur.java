@@ -105,9 +105,11 @@ public class Joueur implements NativeKeyListener
         while(!dir.equals("haut") && !dir.equals("z") && !dir.equals("bas") && !dir.equals("s") && !dir.equals("gauche") && !dir.equals("q") && dir.equals("droite") && dir.equals("d") && !dir.equals("r"));
 
 
-        if (dir.equals("gauche") || dir.equals("q")){
+        if (dir.equals("gauche") || dir.equals("q"))
+        {
             // case du dessus vide
-            if (caseslol[x-1][y].statut.equals(" ")){
+            if (caseslol[x-1][y].statut.equals(" "))
+            {
 
                 caseslol[x-1][y].statut = "X";
                 if(caseslol[x][y].statut.equals("X")){
@@ -117,7 +119,9 @@ public class Joueur implements NativeKeyListener
                     caseslol[x][y].statut = "O";
                 }
 
-            }else if (caseslol[x-1][y].statut.equals("O")){
+            }
+
+            else if (caseslol[x-1][y].statut.equals("O")){
 
                 caseslol[x-1][y].statut = "G";
 
@@ -130,10 +134,13 @@ public class Joueur implements NativeKeyListener
 
 
                 //case au dessus caisse
-            }else if (caseslol[x-1][y].statut.equals("B")){
+            }
+            else if (caseslol[x-1][y].statut.equals("B"))
+            {
 
                 //case au dessus de la caisse vide
-                if (caseslol[x-2][y].statut.equals(" ")){
+                if (caseslol[x-2][y].statut.equals(" "))
+                {
 
                     caseslol[x-2][y].statut = "B";
                     caseslol[x-1][y].statut = "X";
@@ -161,6 +168,7 @@ public class Joueur implements NativeKeyListener
                         caseslol[x][y].statut = "O";
                     }
                 }
+                }
                 else if (caseslol[x-1][y].statut.equals("8")){
                     coordtab[3]--;
                     //case au dessus de la caisse vide
@@ -173,13 +181,15 @@ public class Joueur implements NativeKeyListener
 
                             caseslol[x][y].statut = " ";
 
-                        }else if (caseslol[x][y].statut.equals("G")) {
+                        }
+                        else if (caseslol[x][y].statut.equals("G")) {
 
                             caseslol[x][y].statut = "O";
 
                         }
                         //case au dessus de la caisse = cible
-                    }else if (caseslol[x-2][y].statut.equals("O")){
+                    }
+                    else if (caseslol[x-2][y].statut.equals("O")){
 
                         caseslol[x-2][y].statut = "8";
                         coordtab[3]++;
@@ -188,13 +198,14 @@ public class Joueur implements NativeKeyListener
 
                             caseslol[x][y].statut = " ";
 
-                        }else {
+                        }
+                        else {
                             caseslol[x][y].statut = "O";
 
                         }
                     }
                 }
-            }
+
             if (caseslol[x-1][y].statut.equals("=") ||
                     (caseslol[x-1][y].statut.equals("B") && caseslol[x-2][y].statut.equals("=")) ||
                     (caseslol[x-1][y].statut.equals("B") && caseslol[x-2][y].statut.equals("B")) ||
@@ -273,6 +284,7 @@ public class Joueur implements NativeKeyListener
                         caseslol[x][y].statut = "O";
                     }
                 }
+            }
                 else if (caseslol[x+1][y].statut.equals("8"))
                 {
                     coordtab[3]--;
@@ -307,7 +319,7 @@ public class Joueur implements NativeKeyListener
                         }
                     }
                 }
-            }
+
             if ((caseslol[x+1][y].statut.equals("=")) ||
                     ((caseslol[x+1][y].statut.equals("B")) && (caseslol[x+2][y].statut.equals("="))) ||
                     ((caseslol[x+1][y].statut.equals("B")) && (caseslol[x+2][y].statut.equals("B"))) ||
