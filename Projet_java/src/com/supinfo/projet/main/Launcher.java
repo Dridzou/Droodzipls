@@ -57,5 +57,9 @@ public class Launcher
                 tabVar = currentLvl.loadMap(gameMap, numLvl);
             }
         }
+        else
+        {
+            System.out.println("Vous avez fini le jeu, congratulations à vous !");
+        }
     }
 }
