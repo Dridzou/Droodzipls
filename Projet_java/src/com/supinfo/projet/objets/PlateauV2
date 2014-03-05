@@ -1,0 +1,147 @@
+package com.supinfo.projet.objets;
+
+import java.io.*;
+import java.util.Scanner;
+
+/**
+ * Created by Hugo on 28/02/14.
+ */
+public class Plateau
+{
+
+    int nbrLign2 = 0;
+    int nbrChar = 0;
+    public int[] loadMap (Cases[][] gameMap, int numLvl)
+    {
+        int[] tabVar = new int [5];
+        tabVar[2] = 0;
+        tabVar[3] = 0;
+        tabVar[4] = 0;
+        byte[] buffer = new byte[276];
+        FileInputStream fis = null;
+
+        try
+        {
+            fis = new FileInputStream("src/lvl" + numLvl + ".txt");
+            fis.read(buffer);
+            String content = new String(buffer);
+            String[] tabSplit = content.split("!");
+
+            nbrLign2 = tabSplit.length ;
+            for(int j = 0; j < nbrLign2 - 1; j++)
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    String creationSplitSpl[] = tabSplit[j].split("");
+                    gameMap[i][j] = new Cases(" ");
+                    gameMap[i][j].setStatut(creationSplitSpl[i]);
+                    if (creationSplitSpl[i].equals("X"))
+                    {
+                        tabVar[0] = i;
+                        tabVar[1] = j;
+                    }
+                    if (creationSplitSpl[i].equals("O"))
+                    {
+                        tabVar[2]++;
+                    }
+                }
+            }
+        }
+
+        catch (FileNotFoundException e)
+        {
+            System.out.println("File not found");
+        }
+        catch (IOException e)
+        {
+            System.out.println("Unable to read or write the file");
+        }
+        return (tabVar);
+    }
+
+    public void displayMap (Cases gameMap[][])
+    {
+        for(int j = 0; j < nbrLign2 - 1; j++)
+        {
+            for(int i=0; i < 20; i++)
+            {
+                System.out.print(gameMap[i][j].statut);
+            }
+        }
+    }
+
+
+    public Plateau()
+    {
+
+    }
+
+    public void createMap(Cases[][] gameMap, int numMap)
+    {
+        PrintWriter creationMap;
+
+        try
+        {
+            creationMap = new PrintWriter(new FileWriter("src/lvlcreated" + (numMap-1) + ".txt", true));
+
+            Scanner sc = new Scanner(System.in);
+            String creation = "";
+            String[] creationSplit = creation.split("");
+
+            nbrChar = creationSplit.length;
+            for(int j = 0; j < nbrChar - 1; j++)
+            {
+                for (int i = 0; i < 20; i++)
+                {
+                    String creationSplitSpl[] = creationSplit[j].split("");
+                    gameMap[i][j] = new Cases(" ");
+                    gameMap[i][j].setStatut(creationSplitSpl[i]);
+                    if (creationSplitSpl[i].equals("X"))
+                    {
+                        tabVar[0] = i;
+                        tabVar[1] = j;
+                    }
+                    if (creationSplitSpl[i].equals("O"))
+                    {
+                        tabVar[2]++;
+                    }
+                }
+            }
+
+
+            System.out.println("Entrez vos caractères");
+
+            do
+            {
+                creation = sc.nextLine().toLowerCase();
+                creationMap.print(creation);
+            }
+
+            while (!creationSplit.equals("=") && !creationSplit.equals(" ") && !creationSplit.equals("O") && !creationSplit.equals("B") && !creationSplit.equals("8") && creationSplit.equals("X") && creationSplit.equals("G") && creationSplit.equals("P"));
+
+            if (creation.equals("P"))
+            {
+
+            }
+
+            else
+            {
+                // afficher le caractère entré
+                // System.out.println(creation);
+            }
+
+            creationMap.flush(); creationMap.close();
+            System.out.println();
+        }
+
+        catch (FileNotFoundException e)
+        {
+            System.out.println("File not found.");
+        }
+
+        catch (IOException e)
+        {
+            System.out.println("Unable to write.");
+        }
+    }
+}
