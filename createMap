@@ -1,0 +1,65 @@
+    public void createMap()
+    {
+        String lvlName = "" ;
+        boolean test = true;
+        String creation = "";
+        String[] creationSplit = creation.split(" ");
+        System.out.println("Donnez un nom a votre niveau");
+
+        Scanner scr = new Scanner(System.in);
+        lvlName = scr.nextLine();
+
+        do
+        {
+            do
+            {
+                test = false;
+                System.out.println("Entrez votre ligne et appuyez sur Entrée");
+
+                Scanner sc = new Scanner(System.in);
+
+                creation = sc.nextLine().toUpperCase();
+                creationSplit= creation.split("");
+
+                nbrChar = creationSplit.length;
+
+                for (int i = 1; i < creationSplit.length; i++)
+                {
+                    if (creationSplit[i].isEmpty() || (!creationSplit[i].equals("=") && !creationSplit[i].equals(" ") && !creationSplit[i].equals("O") && !creationSplit[i].equals("B") && !creationSplit[i].equals("8") && !creationSplit[i].equals("X") && creationSplit[i].equals("G") && creationSplit[i].equals("P")))
+                    {
+                        System.out.println("Données invalides !");
+                        test = true;
+                    }
+                }
+                int diff = (20-creationSplit.length);
+
+                if (creationSplit.length < 20)
+                {
+                    for (int i = 0; i < diff+1; i++)
+                    {
+                        creation = creation + " ";
+                    }
+                }
+            }while (test);
+            if (!creation.equals("P                   "))
+            {
+                try
+                {
+                    PrintWriter creationMap = new PrintWriter(new FileWriter("src/" + lvlName +".txt" , true));
+                    creationMap.print(creation + "!\n");
+                    creationMap.flush();
+                    creationMap.close();
+                }
+
+                catch (FileNotFoundException e)
+                {
+                    System.out.println("File not found.");
+                }
+
+                catch (IOException e)
+                {
+                    System.out.println("Unable to write.");
+                }
+            }
+        }while (!creation.equals("P                   "));
+    }
